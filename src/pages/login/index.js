@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import * as actionCreators from './store/actionCreators'
 import Header from '../../components/header'
+import { Button } from 'antd'
 import './login.scss'
 
 // 把store中的数据映射到组件的props
@@ -19,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default  connect(mapStateToProps, mapDispatchToProps) (class Login extends Component {
+export default connect(mapStateToProps, mapDispatchToProps)(class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -31,14 +32,14 @@ export default  connect(mapStateToProps, mapDispatchToProps) (class Login extend
                 <Header/>
                 <h1>Login page</h1>
                 <p>login: myData = {this.props.myData}</p>
-                <button onClick={() => {
+                <Button type='primary' onClick={() => {
                     this.props.getData('123456')
                 }}>更改login的myData
-                </button>
-                <button onClick={() => {
+                </Button>
+                <Button type='default' onClick={() => {
                     this.goHome()
                 }}>跳转Home页
-                </button>
+                </Button>
             </div>
         )
     }
